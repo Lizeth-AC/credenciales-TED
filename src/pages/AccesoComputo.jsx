@@ -91,7 +91,10 @@ function AccesoComputo({ token: tokenFromProps }) {
         `${import.meta.env.VITE_API_URL}/registro-acceso/registrar`,
         {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          },
           body: JSON.stringify({ token: tokenParam }),
           signal: controller.signal,
         }
