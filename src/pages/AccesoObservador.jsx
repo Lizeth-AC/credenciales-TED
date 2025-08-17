@@ -93,7 +93,10 @@ function AccesoObservador({ token: tokenFromProps }) {
         )}`,
         {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          },
           signal: controller.signal,
         }
       );
