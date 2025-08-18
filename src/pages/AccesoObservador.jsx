@@ -88,18 +88,17 @@ function AccesoObservador({ token: tokenFromProps }) {
 
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/registro-acceso/registrar/?token=${encodeURIComponent(
-          tokenParam
-        )}`,
-        {
-          method: 'POST',
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-          },
-          signal: controller.signal,
-        }
-      );
+  `${import.meta.env.VITE_API_URL}/registro-acceso/registrar`,
+  {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    },
+    body: JSON.stringify({ token: tokenParam }), // 👈 aquí
+    signal: controller.signal,
+  }
+);
 
       const data = await res.json();
 
